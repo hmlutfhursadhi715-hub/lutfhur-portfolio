@@ -1,0 +1,6 @@
+{
+  "name": "Hm Lutfhur Sadhi Portfolio",
+  "description": "Video editor and graphic designer portfolio showcasing video edits, reels, and graphic design work by Hm Lutfhur Sadhi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

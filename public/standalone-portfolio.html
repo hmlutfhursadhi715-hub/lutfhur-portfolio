@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hm Lutfhur Sadhi — Video Editor & Visual Storyteller</title>
+  <meta name="description" content="Portfolio of Hm Lutfhur Sadhi — passionate video editor and visual storyteller showcasing video edits, reels, and graphic design work." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Responsive aspect ratios */
+    .aspect-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .aspect-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased transition-colors duration-300 font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- ==================================================== -->
+  <!-- A. NAVIGATION BAR -->
+  <!-- ==================================================== -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/85 dark:bg-neutral-950/85 border-b border-neutral-200 dark:border-neutral-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 flex items-center justify-center font-bold text-base shadow">
+          🎬
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-black text-base sm:text-lg text-neutral-900 dark:text-white tracking-wide leading-tight">
+            Hm Lutfhur Sadhi
+          </span>
+          <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">
+            Video Editor & Storyteller
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+        <a href="#featured" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Featured</a>
+        <a href="#videos" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Video Edits</a>
+        <a href="#graphics" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Graphic Work</a>
+        <a href="#about" class="hover:text-neutral-900 dark:hover:text-white transition-colors">About Me</a>
+        <a href="#contact" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Dark/Light Theme Toggle -->
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm">
+          <span id="theme-icon-sun" class="block">☀️</span>
+          <span id="theme-icon-moon" class="hidden">🌙</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all shadow-sm">
+          <span>Hire Me</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================== -->
+  <!-- B. HERO SECTION (Feature Video & Short Greeting) -->
+  <!-- ==================================================== -->
+  <section id="featured" class="pt-6 pb-12 sm:pb-16 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Tagline -->
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Featured Best Work / Trailer</span>
+        </div>
+        <span class="text-xs text-neutral-500 dark:text-neutral-400">
+          Precision Pacing • Sound Design • Visual Rhythm
+        </span>
+      </div>
+
+      <!-- Large Featured Video Container (16/9 aspect-ratio with subtle shadow) -->
+      <div class="w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-black shadow-2xl">
+        <div class="aspect-video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/u-ghZmTZX6c?rel=0&modestbranding=1"
+            title="Hm Lutfhur Sadhi - Featured Showreel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Short Greeting (Right below featured video with profile.jpg) -->
+      <div class="mt-8 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-md shadow-sm">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+          
+          <!-- Profile Picture (Exact filename: profile.jpg) -->
+          <div class="relative flex-shrink-0 group">
+            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-neutral-200 dark:border-neutral-700 shadow-md bg-neutral-200 dark:bg-neutral-800">
+              <img src="profile.jpg" alt="Hm Lutfhur Sadhi" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5 shadow bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-emerald-600 dark:text-emerald-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Editing Daily</span>
+            </div>
+          </div>
+
+          <!-- Greeting Details -->
+          <div class="flex-1 text-center md:text-left">
+            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 mb-2">
+              ✨ Welcome to my visual portfolio
+            </span>
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 dark:text-white leading-tight">
+              Hi, I'm <span class="font-display font-black tracking-wider text-amber-600 dark:text-amber-400 inline-block">Hm Lutfhur Sadhi</span>
+            </h1>
+            <p class="mt-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed">
+              Dedicated video editor and visual designer passionate about rhythm, pacing, seamless transitions, and clean audio mixing. Explore my recent video projects and poster designs below.
+            </p>
+
+            <div class="mt-5 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <a href="#videos" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-transform active:scale-95 shadow-sm">
+                ▶ Watch Video Edits
+              </a>
+              <a href="#graphics" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition-colors">
+                Graphic Designs
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition-colors">
+                ✉️ Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- C. VIDEO PORTFOLIO GRID -->
+  <!-- ==================================================== -->
+  <section id="videos" class="py-12 sm:py-16 border-t border-neutral-200 dark:border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-400 mb-2 border border-amber-500/20">
+            🎬 Selected Works
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 dark:text-white tracking-tight">
+            Video Editing Portfolio
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl">
+            Clean YouTube embeds showcasing narrative pacing, high-retention cuts, audio mixing, and commercial promos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Responsive Grid (2 columns on md/lg) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        
+        <!-- Video 1 -->
+        <div class="group rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/40 transition-all duration-300">
+          <div class="aspect-video-wrapper bg-black">
+            <iframe src="https://www.youtube.com/embed/93vtX7N4ItI?rel=0&modestbranding=1" title="Cinematic Narrative Cut" allowfullscreen></iframe>
+          </div>
+          <div class="p-5 sm:p-6">
+            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">Cinematic / Narrative</span>
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">
+              Cinematic Narrative & Visual Storytelling
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+              Focused on rhythmic storytelling, mood construction, and subtle emotional beats.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="group rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/40 transition-all duration-300">
+          <div class="aspect-video-wrapper bg-black">
+            <iframe src="https://www.youtube.com/embed/u-ghZmTZX6c?rel=0&modestbranding=1" title="High-Energy Short-Form Reel" allowfullscreen></iframe>
+          </div>
+          <div class="p-5 sm:p-6">
+            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">Shorts / Reels</span>
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">
+              High-Energy Short-Form Reel
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+              Engineered for maximum viewer retention with dynamic sound effects and sharp cuts.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="group rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/40 transition-all duration-300">
+          <div class="aspect-video-wrapper bg-black">
+            <iframe src="https://www.youtube.com/embed/gs23eCnNyfU?rel=0&modestbranding=1" title="Visual Rhythm & Transitions" allowfullscreen></iframe>
+          </div>
+          <div class="p-5 sm:p-6">
+            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">Creative Cut</span>
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">
+              Visual Rhythm & Dynamic Transitions
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+              Music-synchronized video editing showcasing timing accuracy and audio-visual punch.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="group rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/40 transition-all duration-300">
+          <div class="aspect-video-wrapper bg-black">
+            <iframe src="https://www.youtube.com/embed/qnBjUjQ819w?rel=0&modestbranding=1" title="Commercial & Promo Edit" allowfullscreen></iframe>
+          </div>
+          <div class="p-5 sm:p-6">
+            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400">Commercial / Promo</span>
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">
+              Dynamic Commercial & Promotional Showcase
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+              Clean, punchy commercial presentation built to spotlight product highlights and messaging.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- D. GRAPHIC WORK SECTION (graphic1.jpg to graphic6.jpg) -->
+  <!-- ==================================================== -->
+  <section id="graphics" class="py-12 sm:py-16 border-t border-neutral-200 dark:border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-400 mb-2 border border-amber-500/20">
+            🎨 Graphic & Poster Designs
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-neutral-900 dark:text-white tracking-tight">
+            Commercial Posters & Artwork
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl">
+            Click any graphic design below to open the high-resolution lightbox view.
+          </p>
+        </div>
+        <span class="text-xs text-neutral-500 dark:text-neutral-400">6 Design Cards • Vanilla JS Lightbox</span>
+      </div>
+
+      <!-- 6 Image Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Card 1 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic1.jpg" data-title="Bleu De Chanel Luxury Perfume" data-desc="Atmospheric product advertisement highlighting luxury bottle reflections and smoke swirls.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic1.jpg" alt="Bleu De Chanel Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic1.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">Bleu De Chanel Luxury Perfume</h3>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic2.jpg" data-title="Noise Buds N1 Pro ANC Poster" data-desc="High-impact product launch layout emphasizing 60H playtime and metallic finish.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic2.jpg" alt="Noise Buds N1 Pro Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic2.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">Noise Buds N1 Pro ANC Poster</h3>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic3.jpg" data-title="Mint & Chocolate Special Flavour Promo" data-desc="Appetizing promotional poster with fresh mint leaf aesthetics and chocolate styling.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic3.jpg" alt="Special Flavour Ice Cream Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic3.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">Special Flavour Ice Cream Promo</h3>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic4.jpg" data-title="Islamic Dawah Workshop Standee Banner" data-desc="Formal workshop event banner featuring balanced typography and realistic 3D mockup.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic4.jpg" alt="Islamic Workshop Banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic4.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">Islamic Dawah Workshop Standee</h3>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic5.jpg" data-title="High-CTR $10,000 AI YouTube Thumbnail" data-desc="High-converting thumbnail designed for maximum click-through rate.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic5.jpg" alt="High CTR YouTube Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic5.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">High-CTR YouTube Thumbnail</h3>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="graphic-card cursor-pointer group rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300" data-src="graphic6.jpg" data-title="যেদিন হিসাব কায়েম হবে (Surah Ibrahim: 41)" data-desc="Spiritual Arabic and Bengali typography poster with warm horizon and road illustration.">
+          <div class="relative w-full aspect-[4/3] bg-neutral-950 overflow-hidden">
+            <img src="graphic6.jpg" alt="Bengali Quranic Typography Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-white/90 dark:bg-neutral-900/90 text-xs font-bold text-neutral-900 dark:text-white shadow">🔍 View Large</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <span class="text-xs font-mono text-neutral-400">graphic6.jpg</span>
+            <h3 class="font-bold text-neutral-900 dark:text-white mt-1 group-hover:text-amber-500 transition-colors">যেদিন হিসাব কায়েম হবে</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- E. DETAILED ABOUT ME (BIO) SECTION -->
+  <!-- ==================================================== -->
+  <section id="about" class="py-12 sm:py-16 border-t border-neutral-200 dark:border-neutral-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="p-8 sm:p-10 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 shadow-sm relative">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-400 mb-4 border border-amber-500/20">
+          👤 About The Editor
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-neutral-900 dark:text-white tracking-tight mb-4">
+          Dedicated Craft & Constant Practice
+        </h2>
+
+        <!-- The User's Exact Honest Bio -->
+        <p class="text-base sm:text-lg text-neutral-700 dark:text-neutral-200 leading-relaxed font-normal italic">
+          "I am a passionate video editor dedicated to the art of visual storytelling. Over the past several months, I have immersed myself in learning the ins and outs of editing—practicing daily, refining my pacing, and perfecting my sound design. While I don't claim decades of industry experience, I bring fresh creativity, high-energy dedication, and a modern aesthetic to every frame. Let's create something memorable together."
+        </p>
+
+        <div class="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="block font-bold text-neutral-900 dark:text-white">Hm Lutfhur Sadhi</span>
+            <span class="block text-xs text-neutral-500 dark:text-neutral-400">Practicing Daily • Premiere Pro • After Effects • Photoshop</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">#Pacing</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">#SoundDesign</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">#Reels</span>
+            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">#Thumbnails</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- F. GET IN TOUCH SECTION -->
+  <!-- ==================================================== -->
+  <section id="contact" class="py-12 sm:py-20 border-t border-neutral-200 dark:border-neutral-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-700 dark:text-amber-400 mb-3 border border-amber-500/20">
+        ✉️ Let's Connect
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-neutral-900 dark:text-white tracking-tight">
+        Ready to Create Something Memorable?
+      </h2>
+
+      <p class="mt-3 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
+        Reach out directly via email or WhatsApp to discuss your next video edit, trailer, or graphic design project.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <!-- Direct Email -->
+        <a href="mailto:hmlutfhursadhi715@gmail.com" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-200 shadow-md transition-all">
+          ✉️ Email: hmlutfhursadhi715@gmail.com
+        </a>
+
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/?text=Hello%20Hm%20Lutfhur%20Sadhi,%20I%20would%20like%20to%20discuss%20a%20video%20editing%20project!" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-all">
+          💬 Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-200 dark:border-neutral-800 py-8 text-center text-xs text-neutral-500 dark:text-neutral-400">
+    © <span id="year-label"></span> Hm Lutfhur Sadhi. Dedicated Video Editor & Storyteller.
+  </footer>
+
+  <!-- ==================================================== -->
+  <!-- VANILLA JS LIGHTBOX MODAL OVERLAY -->
+  <!-- ==================================================== -->
+  <div id="vanilla-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <button id="lightbox-close-btn" class="absolute top-4 right-4 p-3 rounded-full bg-neutral-900 text-white border border-neutral-700 hover:bg-neutral-800 text-lg">
+      ✕
+    </button>
+    <div class="max-w-4xl max-h-[90vh] w-full flex flex-col items-center rounded-2xl overflow-hidden bg-neutral-950 border border-neutral-800">
+      <div class="p-2 max-h-[75vh] flex items-center justify-center">
+        <img id="lightbox-modal-img" src="" alt="Enlarged Poster" class="max-h-[70vh] max-w-full object-contain rounded" />
+      </div>
+      <div class="w-full p-4 bg-neutral-900 text-left border-t border-neutral-800">
+        <h3 id="lightbox-modal-title" class="text-base font-bold text-white"></h3>
+        <p id="lightbox-modal-desc" class="text-xs text-neutral-300 mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- VANILLA JAVASCRIPT: THEME TOGGLE & LIGHTBOX MODAL -->
+  <!-- ==================================================== -->
+  <script>
+    // 1. Theme Toggle with Default Dark Mode
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        htmlEl.classList.add('dark');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlEl.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Default to dark mode on load
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = savedTheme ? savedTheme === 'dark' : true;
+    applyTheme(prefersDark);
+
+    themeBtn.addEventListener('click', () => {
+      const isCurrentlyDark = htmlEl.classList.contains('dark');
+      applyTheme(!isCurrentlyDark);
+    });
+
+    // 2. Vanilla JS Lightbox Modal
+    const lightbox = document.getElementById('vanilla-lightbox');
+    const lightboxImg = document.getElementById('lightbox-modal-img');
+    const lightboxTitle = document.getElementById('lightbox-modal-title');
+    const lightboxDesc = document.getElementById('lightbox-modal-desc');
+    const lightboxClose = document.getElementById('lightbox-close-btn');
+
+    document.querySelectorAll('.graphic-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const src = card.getAttribute('data-src');
+        const title = card.getAttribute('data-title');
+        const desc = card.getAttribute('data-desc');
+
+        lightboxImg.src = src;
+        lightboxTitle.textContent = title;
+        lightboxDesc.textContent = desc;
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightboxModal() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightboxModal);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightboxModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightboxModal();
+      }
+    });
+
+    // Copyright year
+    document.getElementById('year-label').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
