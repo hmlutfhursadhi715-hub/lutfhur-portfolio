@@ -23,18 +23,45 @@ export const AboutSection: React.FC = () => {
 
             {/* Profile Avatar Card */}
             <div className="mt-6 w-full p-6 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-sm shadow-sm flex flex-col sm:flex-row items-center gap-5">
-              <div className="w-24 h-24 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 flex-shrink-0 bg-neutral-200 dark:bg-neutral-800 shadow-inner">
-                <img
-                  src={profileSrc}
-                  alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover"
+              <div className="relative w-24 h-24 flex-shrink-0">
+                {/* Outer rotating halo */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-1 rounded-full avatar-stroke-glow pointer-events-none opacity-80"
                 />
+
+                {/* Base border stroke */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 rounded-full border-2 border-neutral-200 dark:border-neutral-700/80 pointer-events-none"
+                />
+
+                {/* Rotating light beam around the stroke */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 rounded-full avatar-stroke-beam pointer-events-none"
+                />
+
+                {/* Inner image */}
+                <div className="absolute inset-[3px] rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 shadow-inner z-10">
+                  <img
+                    src={profileSrc}
+                    alt={PERSONAL_INFO.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               <div className="text-center sm:text-left">
-                <h3 className="font-display font-black text-xl sm:text-2xl tracking-tight text-neutral-900 dark:text-white">
-                  {PERSONAL_INFO.name}
-                </h3>
+                <div className="relative inline-block">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-amber-500/15 via-yellow-400/25 to-amber-500/15 blur-lg opacity-70 name-glow-pulse pointer-events-none"
+                  />
+                  <h3 className="relative font-display font-black text-xl sm:text-2xl tracking-tight name-shimmer-text">
+                    {PERSONAL_INFO.name}
+                  </h3>
+                </div>
                 <p className="text-xs font-medium text-amber-600 dark:text-amber-400 mt-0.5">
                   {PERSONAL_INFO.role}
                 </p>

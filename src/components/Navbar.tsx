@@ -27,8 +27,10 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, onToggleTheme }) => {
             <Video className="w-5 h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-black text-base sm:text-xl tracking-tight text-neutral-900 dark:text-white leading-tight">
-              {PERSONAL_INFO.name}
+            <span className="relative inline-block font-display font-black text-base sm:text-xl tracking-tight leading-tight">
+              <span className="name-shimmer-text">
+                {PERSONAL_INFO.name}
+              </span>
             </span>
             <span className="text-xs font-medium text-amber-600 dark:text-amber-400">
               Video Editor & Storyteller

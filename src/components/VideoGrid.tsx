@@ -39,7 +39,7 @@ export const VideoGrid: React.FC = () => {
               <article
                 key={video.id}
                 id={`video-card-${index + 1}`}
-                className="group relative rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-xl hover:border-amber-500/40 dark:hover:border-amber-500/30 transition-all duration-300 flex flex-col"
+                className="video-hover-zoom group relative rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-2xl hover:border-amber-500/50 dark:hover:border-amber-500/40 transition-all flex flex-col cursor-pointer"
               >
                 {/* 16:9 Responsive iFrame Wrapper */}
                 <div className="relative w-full aspect-video bg-black overflow-hidden">

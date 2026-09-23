@@ -33,7 +33,7 @@ export const HeroFeatured: React.FC = () => {
         {/* 1. FEATURED VIDEO CONTAINER (16:9 Aspect Ratio) */}
         <div
           id="featured-video-container"
-          className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-black shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/10 transition-all duration-300"
+          className="video-hover-zoom relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-black shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/10 hover:shadow-2xl hover:border-amber-500/40 dark:hover:border-amber-500/30 transition-all cursor-pointer"
         >
           <div className="relative w-full aspect-video">
             <iframe
@@ -54,9 +54,28 @@ export const HeroFeatured: React.FC = () => {
           className="mt-8 sm:mt-10 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-md shadow-sm transition-all"
         >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
-            {/* Profile Picture (using profile.jpg as requested) */}
-            <div className="relative flex-shrink-0 group">
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-neutral-200 dark:border-neutral-700 shadow-md bg-neutral-200 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105 relative">
+            {/* Profile Picture with orbiting rotating light stroke */}
+            <div className="relative flex-shrink-0 group w-28 h-28 sm:w-32 sm:h-32 transition-transform duration-300 group-hover:scale-105">
+              {/* Outer soft ambient glow that orbits the stroke */}
+              <div
+                aria-hidden="true"
+                className="absolute -inset-1 rounded-full avatar-stroke-glow pointer-events-none opacity-85"
+              />
+
+              {/* Base border stroke */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full border-2 border-neutral-200 dark:border-neutral-700/80 pointer-events-none"
+              />
+
+              {/* The bright light beam rotating in a circle around the stroke */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full avatar-stroke-beam pointer-events-none"
+              />
+
+              {/* Inner profile image container */}
+              <div className="absolute inset-[3px] rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 shadow-inner z-10">
                 <img
                   id="profile-avatar"
                   src={profileSrc}
@@ -83,7 +102,7 @@ export const HeroFeatured: React.FC = () => {
 
               {/* Status Badge */}
               <div
-                className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5 shadow-md bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-emerald-600 dark:text-emerald-400"
+                className="absolute -bottom-1 -right-1 z-20 px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5 shadow-md bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-emerald-600 dark:text-emerald-400"
                 title="Practicing and taking editing projects"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -99,9 +118,23 @@ export const HeroFeatured: React.FC = () => {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-neutral-900 dark:text-white leading-tight tracking-tight">
-                Hi, I'm{' '}
-                <span className="font-display font-black tracking-tight text-amber-500 inline-block drop-shadow-sm">
-                  {PERSONAL_INFO.name}
+                <span className="relative inline-block overflow-hidden py-1 px-1 rounded-lg">
+                  {/* Soft subtle ambient aura */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -inset-1 rounded-xl bg-amber-500/15 blur-lg name-glow-pulse pointer-events-none"
+                  />
+                  
+                  {/* The name with gentle shimmer */}
+                  <span className="relative font-display font-black tracking-tight name-shimmer-text">
+                    {PERSONAL_INFO.name}
+                  </span>
+
+                  {/* Soft delicate light runner passing across */}
+                  <span
+                    aria-hidden="true"
+                    className="light-runner-beam"
+                  />
                 </span>
               </h1>
 
