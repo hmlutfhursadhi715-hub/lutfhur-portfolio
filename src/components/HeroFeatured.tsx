@@ -77,12 +77,12 @@ export const HeroFeatured: React.FC = () => {
           </span>
         </div>
 
-        {/* 1. FEATURED VIDEO CONTAINER (16:9 Aspect Ratio) */}
+        {/* 1. FEATURED VIDEO CONTAINER (16:9 Aspect Ratio) with Traveling Gradient Stroke */}
         <div
           id="featured-video-container"
-          className="video-hover-zoom relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-black shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/10 hover:shadow-2xl hover:border-amber-500/40 dark:hover:border-amber-500/30 transition-all group"
+          className="gradient-stroke-card video-hover-zoom relative w-full rounded-2xl sm:rounded-3xl shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/20 group"
         >
-          <div className="relative w-full aspect-video">
+          <div className="relative z-10 w-full rounded-[calc(1rem-2.5px)] sm:rounded-[calc(1.5rem-2.5px)] overflow-hidden bg-black aspect-video">
             <iframe
               id="featured-video-iframe"
               src={featuredVideo.embedUrl}
@@ -92,17 +92,17 @@ export const HeroFeatured: React.FC = () => {
               allowFullScreen
               loading="eager"
             />
-          </div>
 
-          {/* Floating Edit Badge at top right */}
-          <button
-            onClick={() => setIsEditModalOpen(true)}
-            className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-amber-500 text-white hover:text-neutral-950 text-xs font-bold backdrop-blur-md border border-neutral-700/60 shadow-lg opacity-80 group-hover:opacity-100 transition-all z-20"
-            title="এখানে ক্লিক করে ভিডিওটি পরিবর্তন করুন"
-          >
-            <Edit3 className="w-3.5 h-3.5" />
-            <span>ভিডিও বদলান</span>
-          </button>
+            {/* Floating Edit Badge at top right */}
+            <button
+              onClick={() => setIsEditModalOpen(true)}
+              className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-amber-500 text-white hover:text-neutral-950 text-xs font-bold backdrop-blur-md border border-neutral-700/60 shadow-lg opacity-80 group-hover:opacity-100 transition-all z-20"
+              title="এখানে ক্লিক করে ভিডিওটি পরিবর্তন করুন"
+            >
+              <Edit3 className="w-3.5 h-3.5" />
+              <span>ভিডিও বদলান</span>
+            </button>
+          </div>
         </div>
 
         {/* 2. SHORT GREETING & PROFILE PICTURE (Right Below Featured Video) */}

@@ -90,77 +90,79 @@ export const VideoGrid: React.FC = () => {
               <article
                 key={video.id}
                 id={`video-card-${index + 1}`}
-                className="video-hover-zoom group relative rounded-2xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800/90 bg-white dark:bg-neutral-900/50 overflow-hidden shadow-sm hover:shadow-2xl hover:border-amber-500/50 dark:hover:border-amber-500/40 transition-all flex flex-col cursor-pointer"
+                className="gradient-stroke-card video-hover-zoom group relative rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-2xl transition-all flex flex-col cursor-pointer"
               >
-                {/* 16:9 Responsive iFrame Wrapper */}
-                <div className="relative w-full aspect-video bg-black overflow-hidden">
-                  <iframe
-                    src={embedUrl}
-                    title={video.title}
-                    className="absolute inset-0 w-full h-full border-0 transition-opacity duration-300"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                  />
+                <div className="relative z-10 w-full h-full rounded-[calc(1rem-2.5px)] sm:rounded-[calc(1.5rem-2.5px)] overflow-hidden bg-white dark:bg-neutral-900 flex flex-col justify-between">
+                  {/* 16:9 Responsive iFrame Wrapper */}
+                  <div className="relative w-full aspect-video bg-black overflow-hidden">
+                    <iframe
+                      src={embedUrl}
+                      title={video.title}
+                      className="absolute inset-0 w-full h-full border-0 transition-opacity duration-300"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
 
-                  {/* Top Category Badge */}
-                  <div className="absolute top-3 left-3 pointer-events-none z-10 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-neutral-900/85 backdrop-blur-md text-white border border-neutral-700/50 shadow">
-                      {video.category}
-                    </span>
-                    {isCustom && (
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500 text-neutral-950 shadow">
-                        Newly Added
+                    {/* Top Category Badge */}
+                    <div className="absolute top-3 left-3 pointer-events-none z-10 flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-neutral-900/85 backdrop-blur-md text-white border border-neutral-700/50 shadow">
+                        {video.category}
                       </span>
+                      {isCustom && (
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500 text-neutral-950 shadow">
+                          Newly Added
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Delete button for custom added videos */}
+                    {isCustom && (
+                      <button
+                        onClick={(e) => handleRemoveCustomVideo(video.id, e)}
+                        title="ভিডিওটি মুছে ফেলুন"
+                        className="absolute top-3 right-3 p-1.5 rounded-lg bg-neutral-900/80 hover:bg-red-600 text-white transition-colors z-20 shadow"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
                     )}
                   </div>
 
-                  {/* Delete button for custom added videos */}
-                  {isCustom && (
-                    <button
-                      onClick={(e) => handleRemoveCustomVideo(video.id, e)}
-                      title="ভিডিওটি মুছে ফেলুন"
-                      className="absolute top-3 right-3 p-1.5 rounded-lg bg-neutral-900/80 hover:bg-red-600 text-white transition-colors z-20 shadow"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
+                  {/* Card Content & Details */}
+                  <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <h3 className="text-lg sm:text-xl font-bold font-display text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
+                          {video.title}
+                        </h3>
+                        <a
+                          href={directUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex-shrink-0"
+                          title="Open directly on YouTube"
+                          aria-label={`Open ${video.title} on YouTube`}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </div>
 
-                {/* Card Content & Details */}
-                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
-                        {video.title}
-                      </h3>
-                      <a
-                        href={directUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex-shrink-0"
-                        title="Open directly on YouTube"
-                        aria-label={`Open ${video.title} on YouTube`}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
+                      <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+                        {video.description}
+                      </p>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
-                      {video.description}
-                    </p>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="pt-3 border-t border-neutral-100 dark:border-neutral-800/80 flex flex-wrap items-center gap-1.5">
-                    {video.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded text-[11px] font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
+                    {/* Tags */}
+                    <div className="pt-3 border-t border-neutral-100 dark:border-neutral-800/80 flex flex-wrap items-center gap-1.5">
+                      {video.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 rounded text-[11px] font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>

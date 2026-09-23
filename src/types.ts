@@ -15,4 +15,5 @@ export interface GraphicProject {
   category: string;
   description: string;
   tools: string[];
+  imageUrl?: string;
 }

@@ -105,7 +105,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         <div className="relative w-full flex-1 max-h-[72vh] flex items-center justify-center bg-black/60 p-2 sm:p-4 overflow-hidden">
           <img
             id="lightbox-active-image"
-            src={getImageSrc(project.id, project.filename)}
+            src={project.imageUrl || getImageSrc(project.id, project.filename)}
             alt={project.title}
             className="max-h-[68vh] max-w-full object-contain rounded-lg shadow-lg select-none"
           />
