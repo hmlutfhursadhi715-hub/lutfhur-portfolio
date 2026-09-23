@@ -1,11 +1,46 @@
-import React from 'react';
-import { Play, Sparkles, Mail, MessageCircle, ArrowDown, Camera } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Play, Sparkles, Mail, MessageCircle, ArrowDown, Camera, Edit3, Youtube } from 'lucide-react';
 import { PERSONAL_INFO, FEATURED_VIDEO } from '../data';
 import { useImages } from '../context/ImageContext';
+import { EditFeaturedModal, FeaturedVideoData } from './EditFeaturedModal';
+
+const FEATURED_STORAGE_KEY = 'custom_featured_video';
 
 export const HeroFeatured: React.FC = () => {
   const { getImageSrc, setIsUploadModalOpen, updateImage } = useImages();
   const profileSrc = getImageSrc('profile', 'profile.jpg');
+
+  const [featuredVideo, setFeaturedVideo] = useState<FeaturedVideoData>(FEATURED_VIDEO);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(FEATURED_STORAGE_KEY);
+      if (saved) {
+        setFeaturedVideo(JSON.parse(saved));
+      }
+    } catch (e) {
+      console.error('Failed to load custom featured video:', e);
+    }
+  }, []);
+
+  const handleSaveFeatured = (data: FeaturedVideoData) => {
+    setFeaturedVideo(data);
+    try {
+      localStorage.setItem(FEATURED_STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.error('Failed to save featured video:', e);
+    }
+  };
+
+  const handleResetFeatured = () => {
+    setFeaturedVideo(FEATURED_VIDEO);
+    try {
+      localStorage.removeItem(FEATURED_STORAGE_KEY);
+    } catch (e) {
+      console.error('Failed to reset featured video:', e);
+    }
+  };
 
   const handleProfileDirectUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -18,34 +53,56 @@ export const HeroFeatured: React.FC = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-72 bg-gradient-to-b from-amber-500/10 via-rose-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Feature Pill */}
-        <div className="flex items-center justify-between gap-4 mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
-            <span>Featured Best Work / Trailer</span>
+        {/* Top Feature Pill & Edit Action */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
+              <span>Featured Best Work / Trailer</span>
+            </div>
+
+            {/* Change Video Button */}
+            <button
+              onClick={() => setIsEditModalOpen(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/15 hover:bg-amber-500 text-amber-900 dark:text-amber-200 hover:text-neutral-950 border border-amber-500/30 transition-all shadow-sm hover:scale-105"
+              title="এই ভিডিওটি পরিবর্তন করুন"
+            >
+              <Edit3 className="w-3 h-3" />
+              <span>ভিডিও পরিবর্তন করুন</span>
+            </button>
           </div>
 
           <span className="hidden sm:inline-flex text-xs font-medium text-neutral-500 dark:text-neutral-400">
-            {FEATURED_VIDEO.tagline}
+            {featuredVideo.tagline}
           </span>
         </div>
 
         {/* 1. FEATURED VIDEO CONTAINER (16:9 Aspect Ratio) */}
         <div
           id="featured-video-container"
-          className="video-hover-zoom relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-black shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/10 hover:shadow-2xl hover:border-amber-500/40 dark:hover:border-amber-500/30 transition-all cursor-pointer"
+          className="video-hover-zoom relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-black shadow-2xl shadow-neutral-900/10 dark:shadow-amber-950/10 hover:shadow-2xl hover:border-amber-500/40 dark:hover:border-amber-500/30 transition-all group"
         >
           <div className="relative w-full aspect-video">
             <iframe
               id="featured-video-iframe"
-              src={FEATURED_VIDEO.embedUrl}
-              title={FEATURED_VIDEO.title}
+              src={featuredVideo.embedUrl}
+              title={featuredVideo.title}
               className="absolute inset-0 w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               loading="eager"
             />
           </div>
+
+          {/* Floating Edit Badge at top right */}
+          <button
+            onClick={() => setIsEditModalOpen(true)}
+            className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-amber-500 text-white hover:text-neutral-950 text-xs font-bold backdrop-blur-md border border-neutral-700/60 shadow-lg opacity-80 group-hover:opacity-100 transition-all z-20"
+            title="এখানে ক্লিক করে ভিডিওটি পরিবর্তন করুন"
+          >
+            <Edit3 className="w-3.5 h-3.5" />
+            <span>ভিডিও বদলান</span>
+          </button>
         </div>
 
         {/* 2. SHORT GREETING & PROFILE PICTURE (Right Below Featured Video) */}
@@ -174,6 +231,16 @@ export const HeroFeatured: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Edit Featured Video Modal */}
+      <EditFeaturedModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        currentVideo={featuredVideo}
+        defaultVideo={FEATURED_VIDEO}
+        onSave={handleSaveFeatured}
+        onReset={handleResetFeatured}
+      />
     </section>
   );
 };
